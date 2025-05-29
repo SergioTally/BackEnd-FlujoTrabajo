@@ -28,4 +28,8 @@ export class UsersService {
 
     return user.save();
   }
+
+  async findAll() {
+    return this.userModel.find().select('-password'); // Oculta los passwords
+  }
 }
