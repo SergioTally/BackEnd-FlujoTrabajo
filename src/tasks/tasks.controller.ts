@@ -46,4 +46,9 @@ export class TasksController {
   delete(@Param('id') id: string, @Request() req) {
     return this.tasksService.delete(id, req.user);
   }
+
+  @Get('user/:userId')
+  findByUser(@Param('userId') userId: string) {
+    return this.tasksService.findByUser(userId);
+  }
 }

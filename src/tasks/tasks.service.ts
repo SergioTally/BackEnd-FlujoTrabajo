@@ -65,4 +65,10 @@ export class TasksService {
 
     return this.taskModel.deleteOne({ _id: id });
   }
+
+  async findByUser(userId: string) {
+    return this.taskModel
+      .find({ assignedTo: userId })
+      .populate('assignedTo', 'email role');
+  }
 }
